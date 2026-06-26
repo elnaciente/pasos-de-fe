@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pasos de Fe Hoy — Oración del Día</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .card {
+    background: #FDFAF4;
+    border: 1px solid rgba(201,163,87,0.35);
+    border-radius: 3px;
+    padding: 40px 32px 36px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(201,163,87,0.15), 0 0 0 1px rgba(201,163,87,0.2);
+  }
+  .c { position: absolute; width: 34px; height: 34px; border-color: #C9A357; border-style: solid; opacity: 0.55; }
+  .c.tl { top:13px; left:13px; border-width:1.5px 0 0 1.5px; }
+  .c.tr { top:13px; right:13px; border-width:1.5px 1.5px 0 0; }
+  .c.bl { bottom:13px; left:13px; border-width:0 0 1.5px 1.5px; }
+  .c.br { bottom:13px; right:13px; border-width:0 1.5px 1.5px 0; }
+  .cross-wrap { display:flex; justify-content:center; margin-bottom:10px; }
+  .cross-wrap svg { animation: glow 3s ease-in-out infinite; }
+  @keyframes glow {
+    0%,100% { filter: drop-shadow(0 0 6px rgba(201,163,87,0.4)); }
+    50%      { filter: drop-shadow(0 0 20px rgba(232,201,122,0.8)); }
+  }
+  .brand { text-align:center; letter-spacing:0.28em; font-size:10.5px; color:#C9A357; text-transform:uppercase; margin-bottom:3px; }
+  .brand-sub { text-align:center; font-size:11px; color:#7A5A10; font-style:italic; letter-spacing:0.15em; margin-bottom:24px; opacity:0.75; }
+  .divider { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+  .divider-line { flex:1; height:1px; background:linear-gradient(to right, transparent, #C9A357, transparent); }
+  .diamond { width:6px; height:6px; background:#C9A357; transform:rotate(45deg); opacity:0.85; flex-shrink:0; }
+  .label { text-align:center; font-size:9.5px; letter-spacing:0.32em; color:#7A5A10; text-transform:uppercase; margin-bottom:20px; opacity:0.7; }
+  .prayer-box { text-align:center; font-size:17.5px; line-height:1.9; color:#2a1e08; font-style:italic; min-height:140px; display:flex; align-items:center; justify-content:center; }
+  .verse { text-align:center; font-size:11.5px; color:#C9A357; letter-spacing:0.12em; margin-top:20px; opacity:0.9; line-height:1.6; }
+  .date-line { text-align:center; font-size:12px; color:#7A5A10; font-style:italic; margin-top:8px; opacity:0.65; letter-spacing:0.1em; }
+  .dots { display:flex; gap:8px; justify-content:center; padding:20px 0; }
+  .dot { width:8px; height:8px; border-radius:50%; background:#C9A357; animation:bounce 1.2s ease-in-out infinite; }
+  .dot:nth-child(2) { animation-delay:.2s; }
+  .dot:nth-child(3) { animation-delay:.4s; }
+  @keyframes bounce {
+    0%,80%,100% { transform:translateY(0); opacity:.35; }
+    40%          { transform:translateY(-8px); opacity:1; }
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 1s ease forwards; }
+  .btn-row { display:flex; gap:10px; margin-top:18px; width:100%; max-width:420px; }
+  .btn {
+    flex:1; padding:13px 0;
+    border:1.5px solid #C9A357;
+    background:transparent; color:#C9A357;
+    font-family:Georgia,serif; font-size:10.5px;
+    letter-spacing:0.22em; text-transform:uppercase;
+    cursor:pointer; border-radius:2px; transition:all 0.25s;
+  }
+  .btn:hover { background:#C9A357; color:#1a1208; }
+  .btn.primary { background:#C9A357; color:#1a1208; font-weight:bold; }
+  .btn.primary:hover { background:#E8C97A; border-color:#E8C97A; }
+  .btn:disabled { opacity:0.35; cursor:not-allowed; }
+  .toast {
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%);
+    background:#C9A357; color:#1a1208; padding:10px 28px;
+    font-size:11px; letter-spacing:0.18em; border-radius:2px;
+    white-space:nowrap; animation:fadeUp 0.3s ease; z-index:99;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="c tl"></div><div class="c tr"></div>
+  <div class="c bl"></div><div class="c br"></div>
+
+  <div class="cross-wrap">
+    <svg width="72" height="72" viewBox="0 0 80 80" fill="none">
+      <line x1="40" y1="40" x2="40" y2="6"  stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.55"/>
+      <line x1="40" y1="40" x2="63" y2="17" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.25"/>
+      <line x1="40" y1="40" x2="74" y2="40" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.55"/>
+      <line x1="40" y1="40" x2="63" y2="63" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.25"/>
+      <line x1="40" y1="40" x2="40" y2="74" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.55"/>
+      <line x1="40" y1="40" x2="17" y2="63" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.25"/>
+      <line x1="40" y1="40" x2="6"  y2="40" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.55"/>
+      <line x1="40" y1="40" x2="17" y2="17" stroke="#E8C97A" stroke-width="0.8" stroke-opacity="0.25"/>
+      <rect x="36.5" y="17" width="7" height="40" rx="1" fill="#C9A357"/>
+      <rect x="23"   y="30" width="34" height="7" rx="1" fill="#C9A357"/>
+      <circle cx="40" cy="33.5" r="3.5" fill="#E8C97A" opacity="0.85"/>
+      <path d="M19 58 Q40 51 61 58" stroke="#C9A357" stroke-width="1.2" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="brand">Pasos de Fe Hoy</div>
+  <div class="brand-sub">Facebook Channel</div>
+
+  <div class="divider"><div class="divider-line"></div><div class="diamond"></div><div class="divider-line"></div></div>
+  <div class="label">Oración del Día</div>
+
+  <div class="prayer-box" id="prayer-box">
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </div>
+
+  <div id="verse" class="verse" style="display:none"></div>
+
+  <div class="divider" style="margin-top:22px;margin-bottom:10px;">
+    <div class="divider-line"></div><div class="diamond"></div><div class="divider-line"></div>
+  </div>
+  <div class="date-line" id="date-line"></div>
+</div>
+
+<div class="btn-row">
+  <button class="btn" id="btn-new" onclick="generatePrayer()">✦ Nueva oración</button>
+  <button class="btn primary" id="btn-copy" onclick="copyPrayer()" disabled>Copiar</button>
+</div>
+
+<script>
+  let currentPrayer = "";
+  let currentVerse  = "";
+
+  document.getElementById("date-line").textContent = new Date().toLocaleDateString("es-ES", {
+    weekday:"long", day:"numeric", month:"long", year:"numeric"
+  });
+
+  async function generatePrayer() {
+    const box  = document.getElementById("prayer-box");
+    const vEl  = document.getElementById("verse");
+    const btnN = document.getElementById("btn-new");
+    const btnC = document.getElementById("btn-copy");
+
+    btnN.disabled = true;
+    btnC.disabled = true;
+    currentPrayer = ""; currentVerse = "";
+
+    box.innerHTML = `<div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+    vEl.style.display = "none";
+
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+          model:"claude-sonnet-4-6",
+          max_tokens:1000,
+          messages:[{
+            role:"user",
+            content:`Genera una oración cristiana inspiradora para "Pasos de Fe Hoy". Debe ser poética, 3-5 oraciones cortas, en español, que inspire esperanza y fe para el día de hoy. Responde SOLO en JSON puro sin markdown ni backticks: {"oracion":"...","versiculo":"Cita breve — Libro X:Y"}`
+          }]
+        })
+      });
+      const data = await res.json();
+      const text = data.content.map(b=>b.text||"").join("").replace(/```json|```/g,"").trim();
+      const parsed = JSON.parse(text);
+      currentPrayer = parsed.oracion;
+      currentVerse  = parsed.versiculo;
+    } catch {
+      currentPrayer = "Señor, renueva hoy mis fuerzas y guía mis pasos con tu amor eterno. Que cada momento sea un paso de fe hacia tu propósito divino.";
+      currentVerse  = "Salmos 37:5 — «Encomienda al Señor tu camino; confía en él, y él actuará.»";
+    }
+
+    box.innerHTML = `<div class="fade-up">"${currentPrayer}"</div>`;
+    vEl.textContent = "📖 " + currentVerse;
+    vEl.style.display = "block";
+    vEl.classList.remove("fade-up"); void vEl.offsetWidth; vEl.classList.add("fade-up");
+
+    btnN.disabled = false;
+    btnC.disabled = false;
+  }
+
+  function copyPrayer() {
+    const text = `✝️ Oración del día — PASOS DE FE HOY\n\n"${currentPrayer}"\n\n📖 ${currentVerse}\n\n🙏 Síguenos en Facebook: Pasos de Fe Hoy`;
+    navigator.clipboard.writeText(text).then(() => showToast("✓ Oración copiada"));
+  }
+
+  function showToast(msg) {
+    const t = document.createElement("div");
+    t.className = "toast"; t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 2500);
+  }
+
+  generatePrayer();
+</script>
+</body>
+</html>
